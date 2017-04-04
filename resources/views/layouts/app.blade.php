@@ -42,19 +42,16 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
+                
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-                        <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
+                        <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-log-in"></span> Cadastre-se</a></li>
                     @else
-                        <li><a>Seja bem vindo(a),</a></li>
+                        <li class="hidden-xs"><a>Olá,</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
@@ -66,7 +63,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                                        <span class="glyphicon glyphicon-log-out"></span> Sair
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -76,6 +73,24 @@
                                 </li>
                             </ul>
                         </li>
+                    @endif
+                </ul>
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    &nbsp;
+                    @if(Auth::guest())
+                    @else
+                    <li><a>Cadastrar</a>
+                    </li>
+                    <li><a>Editar</a>
+
+                    </li>
+                    <li><a>Fornecedores</a>
+
+                    </li>
+                    <li><a>Menu</a>
+
+                    </li>
                     @endif
                 </ul>
             </div>
